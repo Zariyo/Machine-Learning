@@ -30,11 +30,11 @@ def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names():
 
     g.remove_edges_from(nx.selfloop_edges(g))
 
-    g = nx.relabel_nodes(g, miasta)
+    #g = nx.relabel_nodes(g, miasta)
 
     pos = nx.spring_layout(g)
-    nx.draw_networkx(g, pos)
+    nx.draw_networkx(g, pos, with_labels=True)
     labels = nx.get_edge_attributes(g, 'weight')
     nx.draw_networkx_edge_labels(g, pos, edge_labels=labels)
-    return nx.get_edge_attributes(g, 'weight')
+    return g
 
