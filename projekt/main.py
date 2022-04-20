@@ -5,7 +5,7 @@ import random
 
 
 
-def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names():
+def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names(n, m):
     miasta = {0: "Gdańsk", 1: "Gdynia", 2: "Sopot", 3: "Wejherowo", 4: "Reda", 5: "Lębork", 6: "Bytów", 7: "Gliwice",
               8: "Warszawa"}
 
@@ -24,7 +24,7 @@ def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names():
             graph[i] = sorted(random.sample(range(0, n), m))
         return graph
 
-    g = nx.Graph(generate_graph(8, 3))
+    g = nx.Graph(generate_graph(n, m))
     for (u, v) in g.edges():
         g.edges[u, v]['weight'] = random.randint(0, 10)
 
@@ -32,9 +32,9 @@ def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names():
 
     #g = nx.relabel_nodes(g, miasta)
 
-    pos = nx.spring_layout(g)
-    nx.draw_networkx(g, pos, with_labels=True)
-    labels = nx.get_edge_attributes(g, 'weight')
-    nx.draw_networkx_edge_labels(g, pos, edge_labels=labels)
+    #pos = nx.spring_layout(g)
+    #nx.draw_networkx(g, pos, with_labels=True)
+    #labels = nx.get_edge_attributes(g, 'weight')
+    #nx.draw_networkx_edge_labels(g, pos, edge_labels=labels)
     return g
 
