@@ -1,17 +1,10 @@
-import matplotlib.pyplot as plt
-from main import make_random_graph
 import pygad
 import networkx as nx
-import time
 import pyswarms as ps
-import math
 import numpy as np
-from pyswarms.utils.functions import single_obj as fx
-from pyswarms.utils.plotters import plot_cost_history
 from main import make_random_graph
 import time
 import networkx.algorithms.approximation
-import random
 
 
 def fitness_func(solution, solution_idx=0):
@@ -72,30 +65,32 @@ def algorithm_fitness(graph):
 
 
 fitness_function = fitness_func
-sol_per_pop = 50
-num_parents_mating = 5
-num_generations = 50
-keep_parents = 3
+sol_per_pop = 100
+num_parents_mating = 45
+num_generations = 300
+keep_parents = 25
 parent_selection_type = "sss"
 crossover_type = "single_point"
 mutation_type = "random"
-mutation_percent_genes = 12
+mutation_percent_genes = 8
 
 dt = {}
 dt["genetic"] = []
 dt["swarm"] = []
 dt["algorithm"] = []
-dt["n"] = [10, 20, 30, 40, 50]
+dt["n"] = []
 
 df = {}
 df["genetic"] = []
 df["swarm"] = []
 df["algorithm"] = []
-df["n"] = [10, 20, 30, 40, 50]
+df["n"] = []
 
-options = {'c1': 0.5, 'c2': 0.3, 'w': 0.9}
+options = {'c1': 0.6, 'c2': 0.3, 'w': 0.9}
 
-for i in range(10, 31, 10):
+for i in range(10, 71, 10):
+    dt["n"].append(i)
+    df["n"].append(i)
     print(i)
     gene_space = {'low': 0, 'high': i, 'step': 1}
     print("Calcualting for " + str(i) + " nodes")
@@ -122,10 +117,10 @@ for i in range(10, 31, 10):
         x_max = np.ones(len(graph.nodes) * 2) * len(graph.nodes)
         x_min = np.zeros(len(graph.nodes) * 2)
         my_bounds = (x_min, x_max)
-        optimizer = ps.single.GlobalBestPSO(n_particles=100, dimensions=len(graph.nodes) * 2,
+        optimizer = ps.single.GlobalBestPSO(n_particles=150, dimensions=len(graph.nodes) * 2,
                                             options=options, bounds=my_bounds)
         start = time.time()
-        res = optimizer.optimize(f, 200)
+        res = optimizer.optimize(f, 450)
         end = time.time()
         dt["swarm"].append(end - start)
         df["swarm"].append(int(res[0]))

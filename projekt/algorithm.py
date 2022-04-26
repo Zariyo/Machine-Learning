@@ -1,10 +1,6 @@
 import networkx.algorithms.approximation
-import matplotlib.pyplot as plt
-import numpy as np
-
 from main import make_random_graph
 import networkx as nx
-import time
 
 graph = make_random_graph(8, 3)
 
