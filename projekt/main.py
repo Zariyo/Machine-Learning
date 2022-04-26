@@ -5,7 +5,7 @@ import random
 
 
 
-def make_random_graph_with_pomeranian_voivodeship_and_Gliwice_city_names(n, m):
+def make_random_graph(n, m):
     miasta = {0: "Gdańsk", 1: "Gdynia", 2: "Sopot", 3: "Wejherowo", 4: "Reda", 5: "Lębork", 6: "Bytów", 7: "Gliwice",
               8: "Warszawa"}
 
