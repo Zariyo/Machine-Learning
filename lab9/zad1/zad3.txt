@@ -1,0 +1,21 @@
+Przykładowy obraz do wykrywania pionowych krawędzi:
+
+8 8 8 0 0 0
+8 8 8 0 0 0
+8 8 8 0 0 0
+8 8 8 0 0 0
+8 8 8 0 0 0
+8 8 8 0 0 0
+
+filtr:
+
+1 0 -1
+1 0 -1
+1 0 -1
+
+wynik:
+
+0 24 24 0
+0 24 24 0
+0 24 24 0
+0 24 24 0

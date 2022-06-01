@@ -1,0 +1,2 @@
+Warstwa splotowa służy do wykrywania krawędzi lub innych cech zdjęcia w zależnośći od zastosowanego filtru:
+
